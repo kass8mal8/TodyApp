@@ -1,0 +1,39 @@
+@font-face {
+  font-family: josefin sans;
+  src: url(../../font/JosefinSans-Medium.ttf);
+}
+.container {
+  font-family: josefin sans;
+}
+.container .header {
+  align-items: center;
+  margin: 20px auto;
+}
+.container .header .background {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  width: 100%;
+  height: 270px;
+  left: 0;
+}
+.container .form {
+  width: 100%;
+}
+.container .form .input {
+  margin: 10px auto;
+}
+.container .btn {
+  background-color: hsl(220, 98%, 61%);
+  text-transform: capitalize;
+  box-shadow: none;
+  width: 100%;
+  margin: 10px auto;
+}
+.container .link {
+  color: hsl(220, 98%, 61%);
+  text-decoration: none;
+}
+.container .link:visited {
+  color: hsl(220, 98%, 61%);
+}

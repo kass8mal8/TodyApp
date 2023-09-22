@@ -1,0 +1,10 @@
+POST http://localhost:5000/api/add-todo HTTP/1.1
+Content-Type: application/json
+
+{
+    "user_id": "Kassim",
+    "title": "Laundry today",
+    "description": "Do laundry for 30 minutes",
+    "time": "10:45",
+    "date": "Sun 24th, 2023"
+}
