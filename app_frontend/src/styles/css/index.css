@@ -19,6 +19,8 @@
 }
 .container .form {
   width: 100%;
+  align-items: center;
+  margin-top: 10%;
 }
 .container .form .input {
   margin: 10px auto;

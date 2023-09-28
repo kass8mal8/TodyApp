@@ -22,47 +22,40 @@ const addTodo = async(req, res) => {
 
 const editTodo = async(req, res) => {
     const { title, description, date, time } = req.body
-    const { todo_id } = req.params
+    const todo_id = req.params.todo_id
 
-    const update = {
-        title: title && title,
-        date: date && date,
-        description: description && description,
-        time: time && time,
-    }
+    const update = { title, date, description, time }
 
-    try {
-        await Todo.findByIdAndUpdate( todo_id , update, (err, docs) => {
-            if(err) {
-                console.log(`Error: ${err.message}`)
-                res.status(500).json(err)
-            }
-            else {
-                res.status(200).json({
-                    message: `${docs.title} updated successfully`
-                })
-            }
-        })
-        
+    try {        
+        const todo = await Todo.findByIdAndUpdate(todo_id, update)
+        console.log(todo)
+        if(!todo) {
+            res.status(404).json({message: "Document not found" })
+        }
+
+        res.status(200).json({ message: `${todo.title} updated successfully` })
+
     } catch (error) {
-        res.status(400).json(err)
+        console.log(error.message)
+        res.status(400).json(error.message)
     }
 }
 
 const removeTodo = async(req, res) => {
-    const { todo_id } = req.params
+    const todo_id = req.params.todo_id
 
     try {
-        await Todo.findByIdAndDelete(todo_id, (err, docs) => {
-            if(err) {
-                res.json(err)
-            }
-            else {
-                res.status(200).json({
-                    message: `${docs.title} deleted successfully`
-                })
-            }
+        const todo = await Todo.findByIdAndDelete(todo_id)
+
+        if(!todo) {
+            res.status(404).json({
+                message: "Document not found"
+            })
+        }
+        res.status(200).json({
+            message: `${todo.title} deleted successfully`
         })
+        
     } catch (error) {
         res.status(500).json(error)
     }
@@ -78,15 +71,13 @@ const getAllTodos = async(req, res) => {
 }
 
 const getSingleTodo = async(req, res) => {
-    const { todo_id } = req.params
+    const todo_id = req.params.todo_id
+
     try {
-        const todo = await Todo.find(todo_id)
-        if(todo.length) res.status(200).json(todo)
-        else {
-            res.status(404).json({ message: "Document not found" })
-        }
+        const todo = await Todo.findById(todo_id)
+        res.status(200).json(todo)
     } catch (error) {
-        res.status(500).json(error)
+        res.status(404).json({ message: "Document not found" })
     }
 }
 

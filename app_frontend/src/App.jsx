@@ -4,15 +4,15 @@ import {
   createTheme 
 } from '@mui/material'
 import './styles/css/index.css'
-import Header from './components/Header'
-import InputField from './components/SearchBar'
-import { Router, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Signup from './authentication/signup'
-import SignIn from './authentication/signin'
 import Home from './components/Home'
-
+import SignIn from './authentication/SignIn'
+import axios from 'axios'
 
 const App = () => {
+  axios.defaults.withCredentials = true;
+
   const theme = createTheme({
 		typography: {
 			fontFamily: 'josefin sans'
@@ -20,7 +20,6 @@ const App = () => {
 	})
 
   return (
-  
     <ThemeProvider theme={theme}> 
       <Container className='container'>
         <Routes>
