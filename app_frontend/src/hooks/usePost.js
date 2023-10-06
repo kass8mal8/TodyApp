@@ -28,8 +28,6 @@ const usePost = (url) => {
                 setData(response)
             }
 
-            
-            console.log(`Data: ${data}`)
             // console.log(`Response: ${response.message}`)
 
         } 

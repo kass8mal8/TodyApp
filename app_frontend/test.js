@@ -1,5 +1,6 @@
 import jwt from 'jwt-decode'
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MDlhNmNlNzdhZTdmNmEwZmZlZjM1ZSIsImlhdCI6MTY5NTgyODIyMiwiZXhwIjoxNjk1ODMxODIyfQ.5U9vsm4XWKcpNeSHhP1J2-pts0jLyl79ObWrKgxMQhk'
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
 const decoded = jwt(token)
+console.log(token)
 console.log(decoded)
