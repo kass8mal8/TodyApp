@@ -11,11 +11,6 @@ const createToken = (payload) => {
     })
 }
 
-// const cookieOptions = {
-//     httpOnly: true,
-//     maxAge: 50000
-// }
-
 const register = async (req, res) => {
     const { first_name, last_name, email, password } = req.body
     
@@ -38,8 +33,6 @@ const register = async (req, res) => {
         }
 
         const token = createToken(payload)
-        console.log(token)
-        // res.cookie('jwt', token, cookieOptions)
         
         res.status(200).json({
             message: 'Account created successfully',
@@ -83,6 +76,7 @@ const login = async (req, res) => {
         }
     })(req, res)
 }
+
 
 module.exports = {
     register, 

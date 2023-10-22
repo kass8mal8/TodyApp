@@ -5,7 +5,24 @@
 
     .header{
         align-items: center;
-        margin: 20px auto;
+        margin-top: -10px;
+        margin-bottom: 20px;
+        width: 103%;
+        padding: 20px;
+        background: $bright-blue;
+        color: $light-gray;
+        margin-left: -27px;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        
+        .list {
+            list-style-type: none;
+            display: inline-flex;
+            justify-content: space-between;
+            flex-grow: 1;
+            align-items: center;
+            margin-left: -15px;
+        }
 
         .background{
             position: absolute;

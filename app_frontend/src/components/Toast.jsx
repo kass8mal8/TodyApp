@@ -7,8 +7,6 @@ const Alert = forwardRef((props, ref) => {
 })
 
 const Toast = ({ error, data, open, handleClose }) => {
-    // console.log(data)
-    console.log(error)
     return (  
         <Snackbar 
             open={open} 

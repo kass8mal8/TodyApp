@@ -1,12 +1,12 @@
 import Header from "./Header";
-import SearchBar from './SearchBar'
+// import SearchBar from './SearchBar'
 import TodoCard from "./TodoCard";
 
 const Home = () => {
     return (  
         <>
             <Header />
-            <SearchBar />
+            {/* <SearchBar /> */}
             <TodoCard />
         </>
     );

@@ -1,25 +1,42 @@
-import { Stack, Avatar, Typography, IconButton, Badge } from "@mui/material"
-import { NotificationsNone } from "@mui/icons-material"
+import { Stack, Box, Typography, IconButton, Badge } from "@mui/material"
+import { ArrowBackIosNew, ArrowForwardIos, CalendarToday, Menu, SkipPrevious, MenuOpen, SortOutlined } from "@mui/icons-material"
+import { useState } from 'react';
+import Dates from "./Dates";
+import useAuthContext from "../hooks/useAuthContext";
 
 const Header = () => {
-    const viewport = document.body.clientWidth
-    const count = 2
+    const d = new Date()
+    // const nums = 1
+    const months = [
+            'January', 'February', 'March', 'April', 'May', 'June', 'July',
+            'August', 'September', 'October', 'November', 'December'
+        ]
+    const m = months.filter(month => months.indexOf(month) === d.getUTCMonth())
+    const [todayDate, setTodayDate] = useState( m[0] + " " + d.getFullYear())
+    const {auth} = useAuthContext()
+    // console.log(auth.user_id)
 
     return (  
-        <Stack className='header' direction='row' spacing={2}>
-            <Avatar sx={{ height:35, width: 35}} >ak</Avatar>
-            <Stack >
-                <Typography variant='body2'>Hey</Typography>
-                <Typography variant="h6">Kassim Ali</Typography>
+        <Box className='header'>
+            <Stack  direction='row' spacing={2}>
+                <IconButton sx={{color: 'hsl(0, 0%, 98%)'}}>
+                    <SortOutlined />
+                </IconButton>
+                <ul className="list">
+                    <IconButton sx={{color: 'hsl(0, 0%, 98%)'}}>
+                        <ArrowBackIosNew />
+                    </IconButton>
+                    <Typography variant='h6' sx={{mt: '5px'}} > {todayDate} </Typography>
+                    <IconButton sx={{color: 'hsl(0, 0%, 98%)'}}>
+                        <ArrowForwardIos />
+                    </IconButton>
+                </ul>
+                <IconButton sx={{color: 'hsl(0, 0%, 98%)'}}>
+                    <CalendarToday />
+                </IconButton>
             </Stack>
-
-            {/* Notifications icon */}
-            <IconButton>
-                <Badge badgeContent={count}>
-                    <NotificationsNone />
-                </Badge>
-            </IconButton>
-        </Stack>
+            <Dates />
+        </Box>
     );
 }
  

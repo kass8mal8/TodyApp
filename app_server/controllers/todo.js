@@ -61,20 +61,14 @@ const removeTodo = async(req, res) => {
     }
 }
 
-const getAllTodos = async(req, res) => {
-    try {
-        const todos = await Todo.find({})
-        res.status(200).json(todos)
-    } catch (error) {
-        res.status(500).json(error)
-    }
-}
-
-const getSingleTodo = async(req, res) => {
-    const todo_id = req.params.todo_id
+// todos for a single person
+const getTodos = async(req, res) => {
+    const user_id = req.params.user_id
+    console.log("ID: ", user_id)
 
     try {
-        const todo = await Todo.findById(todo_id)
+        const todo = await Todo.find({user_id})
+        console.log(todo)
         res.status(200).json(todo)
     } catch (error) {
         res.status(404).json({ message: "Document not found" })
@@ -85,6 +79,5 @@ module.exports = {
     addTodo,
     editTodo,
     removeTodo,
-    getAllTodos,
-    getSingleTodo
+    getTodos
 }
