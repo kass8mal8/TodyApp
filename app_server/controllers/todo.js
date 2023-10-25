@@ -9,7 +9,8 @@ const addTodo = async(req, res) => {
             description, 
             date, 
             time, 
-            user_id
+            user_id,
+            status: "incomplete"
         })
 
         res.status(200).json({ 
@@ -38,6 +39,16 @@ const editTodo = async(req, res) => {
     } catch (error) {
         console.log(error.message)
         res.status(400).json(error.message)
+    }
+}
+
+const markComplete = async(req, res) => {
+    const todo_id = req.params.todo_id
+    try {
+        const todo = await Todo.findByIdAndUpdate(todo_id, { status: "completed" })
+        
+    } catch (error) {
+        res.status(500).json(error)
     }
 }
 
@@ -79,5 +90,6 @@ module.exports = {
     addTodo,
     editTodo,
     removeTodo,
-    getTodos
+    getTodos,
+    markComplete
 }

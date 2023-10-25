@@ -10,7 +10,8 @@ const todoSchema = new Schema({
     title: options,
     description: options,
     time: options,
-    date: options
+    date: options,
+    status: options
 }, { 
     timestamps: true 
 })

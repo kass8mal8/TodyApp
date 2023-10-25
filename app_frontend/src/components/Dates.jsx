@@ -8,25 +8,25 @@ const Dates = () => {
     const today = d.getDate()
 
     for(let x = 1; x <= 31; x++) count.push(x)
-    // console.log(count)
+
     const chunkSize = Math.ceil(count.length / 5)
     const currentDates = []
 
     for(let i = 0; i < count.length; i += chunkSize) {
         currentDates.push(count.slice(i, i + chunkSize))
     }
-    console.log(currentDates)
 
-    // const dates = currentDates.includes(today)
     let date
     for(let x of currentDates) {
         if(x.includes(today)) date = x
     }
 
+    const arr = [1, 2, 3]
+
     return (  
         <Stack 
             direction='row' 
-            spacing={3.7}
+            spacing={3.2}
             sx={{
                 mt: '30px',
                 marginLeft: '10px',
@@ -46,12 +46,17 @@ const Dates = () => {
                             mt: current === today && '-10px'
                         }}
                     >
-                        <Typography 
-                            variant="h5" 
-                           
-                        > {current}
+                        <Typography variant="h5"> {current} </Typography>
+                        <Typography variant='body2' sx={{textAlign: 'center'}}>
+                            {arr.includes(current % 10) ? 
+                            <>
+                                {current % 10 === arr[0] && "st"}
+                                {current % 10 === arr[1] && "nd"}
+                                {current % 10 === arr[2] && "rd"}
+                            </>
+                                : "th"
+                            }
                         </Typography>
-                        <Typography variant='body2' sx={{textAlign: 'center'}}>th</Typography>
                     </Box>
                 </Box>
             ))}
