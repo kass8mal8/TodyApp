@@ -10,20 +10,9 @@ import Home from './components/Home'
 import SignIn from './authentication/SignIn'
 import axios from 'axios'
 import useAuthContext from './hooks/useAuthContext'
-import useFetch from './hooks/useFetch'
-import { useEffect } from 'react'
 
 const App = () => {
   axios.defaults.withCredentials = true;
-  const { auth } = useAuthContext()
-  const { user_id } = auth 
-
-  const url = `http://localhost:5000/api/todo/${user_id}`
-  const {data, error} = useFetch(url)
-
-  useEffect(() => {
-    data && console.log(data)
-  }, []);
 
   const theme = createTheme({
 		typography: {

@@ -1,11 +1,23 @@
 import { Box, Stack, Typography } from "@mui/material";
+import MuiSkeleton from "./skeleton";
 
 const TodoList = ({todos, isPending, isError, error}) => {
-    // console.log(todos)
+    const arr = [1, 2, 3, 4]
     return (  
         <Box>
-            {todos?.map( todo => (
-                <Stack direction='row' spacing={2}>
+            {!isPending ? 
+            <> {arr.map( ar => ( <MuiSkeleton key={ar} />))} </>
+            : todos?.map( todo => (
+                <Stack 
+                    direction='row' 
+                    spacing={2}
+                    sx={{
+                        marginBottom: '10px',
+                        borderRadius: '10px',
+                        padding: '10px'
+                    }}
+                    key={todo.id}
+                >
                     <Box>
                         <Typography color='text.secondary'>{todo.time}</Typography>
                         <input type='radio' />

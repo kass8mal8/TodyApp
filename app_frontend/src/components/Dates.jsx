@@ -2,24 +2,7 @@ import { Typography, Stack, Box } from "@mui/material"
 import React, { useState } from 'react';
 
 
-const Dates = () => {
-    let count = []
-    const d = new Date()
-    const today = d.getDate()
-
-    for(let x = 1; x <= 31; x++) count.push(x)
-
-    const chunkSize = Math.ceil(count.length / 5)
-    const currentDates = []
-
-    for(let i = 0; i < count.length; i += chunkSize) {
-        currentDates.push(count.slice(i, i + chunkSize))
-    }
-
-    let date
-    for(let x of currentDates) {
-        if(x.includes(today)) date = x
-    }
+const Dates = ({ date, count }) => {
 
     const arr = [1, 2, 3]
 
@@ -32,7 +15,7 @@ const Dates = () => {
                 marginLeft: '10px',
             }}
         >
-            {date.map((current, index) => (
+            {date?.map((current, index) => (
                 <Box 
                     key={index} 
                 >

@@ -1,0 +1,37 @@
+[
+    {
+        "_id": "650dadef6846b2e6b28fc604",
+        "user_id": "6509a6ce77ae7f6a0ffef35e",
+        "title": "Hackerrank Interview",
+        "description": "Prepare for my interview by doing some practise questions.",
+        "time": "10:45",
+        "date": "Sun 24th, 2023",
+        "createdAt": "2023-09-22T15:08:31.969Z",
+        "updatedAt": "2023-09-22T16:26:00.828Z",
+        "__v": 0
+      },
+      {
+        "_id": "6538b75d96014b37269cc9e4",
+        "user_id": "6509a6ce77ae7f6a0ffef35e",
+        "title": "Laundry today",
+        "description": "Do laundry for 30 minutes",
+        "time": "10:45",
+        "date": "Sun 24th, 2023",
+        "status": "incomplete",
+        "createdAt": "2023-10-25T06:36:13.635Z",
+        "updatedAt": "2023-10-25T06:36:13.635Z",
+        "__v": 0
+      },
+      {
+        "_id": "6538b7c096014b37269cceb1",
+        "user_id": "6509a6ce77ae7f6a0ffef35e",
+        "title": "Revise Calculus II",
+        "description": "Go through Integration by parts and parametric differntiation for tommorrows cat.",
+        "time": "20:15",
+        "date": "Mon 24th, 2023",
+        "status": "incomplete",
+        "createdAt": "2023-10-25T06:37:52.864Z",
+        "updatedAt": "2023-10-25T06:37:52.864Z",
+        "__v": 0
+      }
+]
