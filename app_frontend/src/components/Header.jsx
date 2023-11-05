@@ -6,14 +6,12 @@ import useAuthContext from "../hooks/useAuthContext";
 
 const Header = () => {
     const d = new Date()
-    // const nums = 1
     const months = [
         'January', 'February', 'March', 'April', 'May', 'June', 'July',
         'August', 'September', 'October', 'November', 'December'
     ]
     const m = months.filter(month => months.indexOf(month) === d.getUTCMonth())
     const [todayDate, setTodayDate] = useState( m[0] + " " + d.getFullYear())
-
 
     // Date logic
     let date
