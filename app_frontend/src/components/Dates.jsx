@@ -2,9 +2,10 @@ import { Typography, Stack, Box } from "@mui/material"
 import React, { useState } from 'react';
 
 
-const Dates = ({ date, count }) => {
+const Dates = ({ date, today }) => {
 
     const arr = [1, 2, 3]
+    
 
     return (  
         <Stack 
@@ -13,6 +14,8 @@ const Dates = ({ date, count }) => {
             sx={{
                 mt: '30px',
                 marginLeft: '10px',
+                display: 'flex',
+                justifyContent: 'space-between'
             }}
         >
             {date?.map((current, index) => (

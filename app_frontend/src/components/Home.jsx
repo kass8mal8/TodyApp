@@ -27,7 +27,7 @@ const Home = () => {
     })
 
     useEffect(() => data && setTodos(data), []);
-    console.log(data)
+    // console.log(data)
     
 	const queryClient = useQueryClient()
 	const refetchTodos = () => queryClient.invalidateQueries(['todos'])
@@ -35,8 +35,7 @@ const Home = () => {
 
     return (  
         <>
-            <Header />
-            {/* <SearchBar /> */}
+            <Header /> 
             <TodoCard  
                 isPending={isPending}
                 todos={data}

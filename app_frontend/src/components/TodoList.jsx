@@ -2,7 +2,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import MuiSkeleton from "./skeleton";
 
 const TodoList = ({todos, isPending, isError, error}) => {
-    const arr = [1, 2, 3, 4]
+    const arr = [1, 2, 3, 4, 5]
     return (  
         <Box>
             {!isPending ? 
